@@ -31,4 +31,4 @@ const md5 = hash.toString();
 
 ### 环比提升
 
-![](https://issuecdn.baidupcs.com/issue/netdisk/ts_ad/help/1607953735.png)
+![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0c5e6c7feab0474e9cd137ef47eb12d6~tplv-k3u1fbpfcp-watermark.image)
