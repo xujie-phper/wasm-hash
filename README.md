@@ -6,7 +6,7 @@
 1. npm安装
 
 ```
-"wasm-hash": ""git+ssh://git@github.com:xujie-phper/wasm-hash.git#v1.0.0"
+"wasm-hash": "git+ssh://git@github.com:xujie-phper/wasm-hash.git#v1.0.0"
 ```
 
 2. 项目使用
