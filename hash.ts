@@ -12,7 +12,7 @@ import * as hex from "./encoding/hex";
 import * as base64 from "./encoding/base64";
 import type {Hasher, Message, OutputFormat} from "./hash.d";
 
-(async function(){
+(async function () {
     await init(source);
 })();
 
@@ -54,6 +54,37 @@ class Hash implements Hasher {
         return this;
     }
 
+    /**
+     * end internal state
+     * @param data data to end
+     * @param cb
+     */
+    end(data: [], cb: Function) {
+        if (typeof data !== "object") {
+            throw new Error(TYPE_ERROR_MSG);
+        }
+
+        // @ts-ignore
+        if (typeof data[0] === "object") {
+            throw new Error(TYPE_ERROR_MSG);
+        }
+
+        let self = this;
+        let count = 0;
+        // @ts-ignore
+        this.fiber(function* () {
+            while (count < data.length) {
+                updateHash(self._hash, data[count++]);
+                yield;
+            }
+
+            const hash = self.toString();
+            cb(hash);
+        })();
+
+        return this;
+    }
+
     /** Returns final hash */
     digest(): ArrayBuffer {
         if (this._digested) throw new Error("hash: already digested");
@@ -76,6 +107,25 @@ class Hash implements Hasher {
                 return base64.encode(finalized);
             default:
                 throw new Error("hash: invalid format");
+        }
+    }
+
+    /**
+     * Returns
+     * @param gen gen to time slice
+     */
+    fiber(gen: any) {
+        if (typeof gen === 'function') gen = gen();
+        if (!gen || typeof gen.next !== 'function') return;
+        return function next() {
+            const start = performance.now();
+            let res = null;
+            do {
+                res = gen.next()
+            } while (!res.done && performance.now() - start < 50);
+
+            if (res.done) return;
+            setTimeout(next)
         }
     }
 }

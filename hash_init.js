@@ -129,8 +129,11 @@ function passArray8ToWasm0(arg, malloc) {
 /**
 * @param {DenoHash} hash
 * @param {Uint8Array} data
-*/
+ */
 export function update_hash(hash, data) {
+    if (!ArrayBuffer.isView(data)) {
+        data = new Uint8Array(data);
+    }
     _assertClass(hash, DenoHash);
     var ptr0 = passArray8ToWasm0(data, wasm.__wbindgen_malloc);
     var len0 = WASM_VECTOR_LEN;
