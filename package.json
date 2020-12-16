@@ -1,6 +1,6 @@
 {
   "name": "wasm-hash",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "calculate file md5 with webassembly",
   "main": "/dist/index.js",
   "scripts": {

@@ -65,7 +65,7 @@ class Hash implements Hasher {
         }
 
         // @ts-ignore
-        if (typeof data[0] === "object") {
+        if (typeof data[0] !== "object") {
             throw new Error(TYPE_ERROR_MSG);
         }
 
