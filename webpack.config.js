@@ -1,4 +1,5 @@
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
     entry: './hash.ts',
@@ -39,5 +40,14 @@ module.exports = {
         // asyncWebAssembly: true,
         topLevelAwait: true,
     },
-
+    optimization: {
+        minimize: true,
+        minimizer: [
+            new TerserPlugin({
+                terserOptions:{
+                    module: true,
+                },
+            }),
+        ]
+    }
 };
