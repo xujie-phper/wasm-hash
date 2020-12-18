@@ -1,7 +1,6 @@
 // Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
 
 import init, {
-    source,
     create_hash as createHash,
     update_hash as updateHash,
     digest_hash as digestHash,
@@ -13,7 +12,7 @@ import * as base64 from "./encoding/base64";
 import type {Hasher, Message, OutputFormat} from "./hash.d";
 
 (async function () {
-    await init(source);
+    await init('https://staticiot.cdn.bcebos.com/union/hash_bg.wasm');
 })();
 
 // await init('./hash_bg.wasm');
