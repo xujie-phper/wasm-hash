@@ -1,4 +1,9 @@
+import encoding from 'text-encoding';
+
 let wasm;
+
+const TextDecoder = TextDecoder || encoding.TextDecoder;
+const TextEncoder = TextEncoder || encoding.TextEncoder;
 
 let cachedTextDecoder = new TextDecoder('utf-8', { ignoreBOM: true, fatal: true });
 

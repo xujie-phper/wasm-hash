@@ -1,4 +1,3 @@
-// Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
 import Hash from "./hash";
 
 const millionAs = "a".repeat(1000000);

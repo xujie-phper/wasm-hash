@@ -1,5 +1,3 @@
-// Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
-
 export type Message = string | ArrayBuffer | any;
 export type OutputFormat = "hex" | "base64";
 

@@ -1,6 +1,6 @@
 {
-  "name": "wasm-hash",
-  "version": "1.0.3",
+  "name": "webassembly-hash",
+  "version": "1.0.0",
   "description": "calculate file md5 with webassembly",
   "main": "/dist/index.js",
   "scripts": {
@@ -13,10 +13,9 @@
   ],
   "author": "xujie07@baidu.com",
   "license": "ISC",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
+  "dependencies": {
+    "text-encoding": "^0.7.0"
   },
-  "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",

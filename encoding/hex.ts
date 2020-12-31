@@ -4,6 +4,10 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 // Copyright 2018-2020 the Deno authors. All rights reserved. MIT license.
+import * as encoding from 'text-encoding';
+
+const TextDecoder: any = window.TextDecoder || encoding.TextDecoder;
+const TextEncoder: any = window.TextEncoder || encoding.TextEncoder;
 
 const hextable = new TextEncoder().encode("0123456789abcdef");
 
