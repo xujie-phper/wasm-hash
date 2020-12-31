@@ -6,7 +6,7 @@
 1. npm安装
 
 ```
-"wasm-hash": "http://gitlab.baidu.com/wangpanfe/WebAssembly-Hash/repository/archive.tar.gz?ref=2.0.0"
+npm i wasm-hash
 ```
 
 2. 项目使用
